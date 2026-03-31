@@ -3,7 +3,9 @@ import Chat from "./components/Chat";
 import Login from "./components/Login";
 import Register from "./components/Register";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:5050";
+// On Vercel, fall back to the current origin (the deployed frontend domain).
+// For real backend + Socket.IO, you should still set `VITE_API_URL` / `VITE_SOCKET_URL` in Vercel env vars.
+const API_URL = import.meta.env.VITE_API_URL || window.location.origin;
 const TOKEN_STORAGE_KEY = "secure_chat_token";
 const USER_STORAGE_KEY = "secure_chat_user";
 
